@@ -1,10 +1,11 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 
-const SimpleComponent = ({ text }) => <div>{text}</div>;
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const SimpleMap = props => {
-  const { center, zoom } = props;
+  const { center, zoom } = props.config;
+
   return (
     <div style={{ height: "100vh", width: "100%" }}>
       <GoogleMapReact
@@ -12,7 +13,7 @@ const SimpleMap = props => {
         defaultCenter={center}
         defaultZoom={zoom}
       >
-        <SimpleComponent lat={center.lat} lng={center.lng} text="SimpleMap" />
+        <AnyReactComponent lat={center.lat} lng={center.lng} text="My Marker" />
       </GoogleMapReact>
     </div>
   );
